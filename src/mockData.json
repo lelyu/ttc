@@ -1,0 +1,32 @@
+[
+	{
+		"id": 1,
+		"app_name": "AppOne",
+		"app_uri": "http://appone.example.com",
+		"app_description": "This is the first mock application."
+	},
+	{
+		"id": 2,
+		"app_name": "AppTwo",
+		"app_uri": "http://apptwo.example.com",
+		"app_description": "This is the second mock application."
+	},
+	{
+		"id": 3,
+		"app_name": "AppThree",
+		"app_uri": "http://appthree.example.com",
+		"app_description": "This is the third mock application."
+	},
+	{
+		"id": 4,
+		"app_name": "AppFour",
+		"app_uri": "http://appfour.example.com",
+		"app_description": "This is the fourth mock application."
+	},
+	{
+		"id": 5,
+		"app_name": "AppFive",
+		"app_uri": "http://appfive.example.com",
+		"app_description": "This is the fifth mock application."
+	}
+]
