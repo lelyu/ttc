@@ -9,9 +9,15 @@ function App() {
 	console.log(mockData)
 	return (
 		<>
-			<h1>Welcome to the teaching tools collection</h1>
-			<OperationMenu />
-			<ItemMenu data={mockData} />
+			<h1>Welcome</h1>
+			<div className="App">
+				<div className="operation-menu">
+					<OperationMenu />
+				</div>
+				<div className="item-menu">
+					<ItemMenu data={mockData} />
+				</div>
+			</div>
 		</>
 	)
 }
