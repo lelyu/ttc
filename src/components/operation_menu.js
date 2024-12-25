@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-
+import "../styles/OperationMenu.css"
 const OperationMenu = () => {
 	const [status, setStatus] = useState("None Selected")
 
@@ -8,12 +8,15 @@ const OperationMenu = () => {
 	const handleReset = () => setStatus("Select All")
 
 	return (
-		<div>
-			<button onClick={handleStart}>Add a new app</button>
-			<button onClick={handleStop}>Delete Selected</button>
-			<button onClick={handleReset}>Select All</button>
+		<>
+			<h1>Operation Menu</h1>
+			<div className="button-group">
+				<button onClick={handleStart}>Add a new app</button>
+				<button onClick={handleStop}>Delete Selected</button>
+				<button onClick={handleReset}>Select All</button>
+			</div>
 			<p>Status: {status}</p>
-		</div>
+		</>
 	)
 }
 

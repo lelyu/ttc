@@ -9,7 +9,7 @@ function App() {
 	console.log(mockData)
 	return (
 		<>
-			<h1>Welcome</h1>
+			<h1>Welcome to TTC</h1>
 			<div className="App">
 				<div className="operation-menu">
 					<OperationMenu />

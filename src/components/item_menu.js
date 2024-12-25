@@ -3,7 +3,7 @@ import React from "react"
 const ItemMenu = ({ data }) => {
 	return (
 		<>
-			<h1>Item Menu</h1>
+			<h1>My Apps</h1>
 			<ul>
 				{data.map((item, index) => (
 					<li key={index}>

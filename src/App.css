@@ -1,8 +1,12 @@
 .App {
-	display: flex; /* Use flex layout */
-	flex-direction: row; /* Place items side by side in a row */
-	gap: 1rem; /* Optional spacing between columns */
-	padding: 1rem; /* Optional padding around the container */
+	display: flex;
+	flex-direction: row;
+	gap: 1rem;
+	padding: 1rem;
+}
+
+h1 {
+	text-align: center;
 }
 
 .operation-menu {
