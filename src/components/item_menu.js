@@ -1,13 +1,22 @@
 import React from "react"
+import "../styles/ItemMenu.css"
 
-const ItemMenu = ({ data }) => {
+const ItemMenu = ({ data, checkedItems, onCheckboxChange }) => {
 	return (
 		<>
 			<h1>My Apps</h1>
 			<ul>
 				{data.map((item, index) => (
 					<li key={index}>
-						<h2>{item.app_name}</h2>
+						<input
+							type="checkbox"
+							// Convert undefined to false with !!
+							checked={!!checkedItems[index]}
+							onChange={(e) =>
+								onCheckboxChange(index, e.target.checked)
+							}
+						/>
+						<strong>{item.app_name}</strong>
 						<p>{item.app_description}</p>
 						<a
 							href={item.app_uri}

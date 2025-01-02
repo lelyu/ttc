@@ -1,11 +1,17 @@
 import React, { useState } from "react"
 import "../styles/OperationMenu.css"
-const OperationMenu = () => {
+
+const OperationMenu = ({ onSelectAll }) => {
 	const [status, setStatus] = useState("None Selected")
 
 	const handleAddMenu = () => setStatus("Adding A New App")
 	const handleDeleteMenu = () => setStatus("Deleting Selected")
-	const handleSelectAllMenu = () => setStatus("Selecting All")
+
+	// This triggers the parent's handleSelectAll, setting all checkboxes to true
+	const handleSelectAllMenu = () => {
+		setStatus("Selecting All")
+		onSelectAll()
+	}
 
 	const handleAdd = (e) => {
 		e.preventDefault()
@@ -25,6 +31,7 @@ const OperationMenu = () => {
 				<button onClick={handleSelectAllMenu}>Select All</button>
 			</div>
 			<p>Status: {status}</p>
+
 			{status === "Adding A New App" && (
 				<form onSubmit={handleAdd}>
 					<label>
