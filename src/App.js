@@ -1,19 +1,15 @@
 import React, { useState } from "react"
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom"
 import "./App.css"
 import OperationMenu from "./components/operation_menu"
 import ItemMenu from "./components/item_menu"
 
 function App() {
-	// Load your data
 	const mockData = require("./mockData.json")
-	console.log(mockData)
 
-	// Maintain the checked items in the parent
-	// Key: index of the item in mockData, Value: true/false
+	// Keep track of which items are checked (by index)
 	const [checkedItems, setCheckedItems] = useState({})
 
-	// When an individual checkbox changes, update our parent's state
+	// Handler for a single checkbox
 	const handleCheckboxChange = (index, isChecked) => {
 		setCheckedItems((prev) => ({
 			...prev,
@@ -21,13 +17,21 @@ function App() {
 		}))
 	}
 
-	// When "Select All" is clicked, mark *every* item as checked
-	const handleSelectAll = () => {
-		const allChecked = mockData.reduce((acc, item, index) => {
-			acc[index] = true
-			return acc
-		}, {})
-		setCheckedItems(allChecked)
+	// New toggle function:
+	// If "isSelectAll" is true, check every item.
+	// If "isSelectAll" is false, uncheck every item.
+	const handleToggleAll = (isSelectAll) => {
+		if (isSelectAll) {
+			// Select all
+			const allChecked = mockData.reduce((acc, _, index) => {
+				acc[index] = true
+				return acc
+			}, {})
+			setCheckedItems(allChecked)
+		} else {
+			// Unselect all
+			setCheckedItems({})
+		}
 	}
 
 	return (
@@ -35,11 +39,15 @@ function App() {
 			<h1>Welcome to TTC</h1>
 			<div className="App">
 				<div className="operation-menu">
-					{/* Pass down the handler so OperationMenu can trigger "Select All" */}
-					<OperationMenu onSelectAll={handleSelectAll} />
+					{/*
+            Pass down handleToggleAll.
+            Notice we no longer just have a "handleSelectAll".
+            Instead, we can toggle based on a boolean.
+          */}
+					<OperationMenu onToggleAll={handleToggleAll} />
 				</div>
+
 				<div className="item-menu">
-					{/* Pass the checked state and updater to ItemMenu */}
 					<ItemMenu
 						data={mockData}
 						checkedItems={checkedItems}
