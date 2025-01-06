@@ -10,12 +10,10 @@ const OperationMenu = ({ onToggleAll }) => {
 
 	const handleSelectAllMenu = () => {
 		if (allSelected) {
-			// If everything is already selected, we want to unselect them now
 			setStatus("Unselecting All")
 			setAllSelected(false)
 			onToggleAll(false) // Pass 'false' to the parent to uncheck everything
 		} else {
-			// If not everything is selected, we want to select them
 			setStatus("Selecting All")
 			setAllSelected(true)
 			onToggleAll(true) // Pass 'true' to the parent to check everything
@@ -38,10 +36,6 @@ const OperationMenu = ({ onToggleAll }) => {
 				<button onClick={handleAddMenu}>Add a new app</button>
 				<button onClick={handleDeleteMenu}>Delete Selected</button>
 
-				{/* 
-          Toggle button. Display “Select All” or “Unselect All”
-          based on whether everything is currently selected.
-        */}
 				{allSelected ? (
 					<button onClick={handleSelectAllMenu}>Unselect All</button>
 				) : (
